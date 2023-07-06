@@ -1,0 +1,108 @@
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def find_primes(start, end):
+    primes = []
+    for num in range(start, end + 1):
+        if is_prime(num):
+            primes.append(num)
+    return primes
+
+start_num = int(input("Enter the start number: "))
+end_num = int(input("Enter the end number: "))
+
+prime_numbers = find_primes(start_num, end_num)
+print("Prime numbers between", start_num, "and", end_num, "are:")
+print(prime_numbers)
+
+
+
+
+
+
+
+
+
+
+
+def fibonacci(n):
+    fib_seq = []
+    if n <= 0:
+        return fib_seq
+    elif n == 1:
+        fib_seq.append(0)
+    elif n == 2:
+        fib_seq.extend([0, 1])
+    else:
+        fib_seq.extend([0, 1])
+        for i in range(2, n):
+            fib_seq.append(fib_seq[i-1] + fib_seq[i-2])
+    return fib_seq
+
+# Example usage:
+n_terms = int(input("Enter the number of terms in the Fibonacci series: "))
+fibonacci_series = fibonacci(n_terms)
+print("Fibonacci series:")
+print(fibonacci_series)
+
+
+
+
+
+
+
+
+
+
+def is_palindrome_number(num):
+    return str(num) == str(num)[::-1]  # Compare with reversed string representation
+
+# Example usage:
+number = int(input("Enter a number: "))
+if is_palindrome_number(number):
+    print("The number is a palindrome.")
+else:
+    print("The number is not a palindrome.")
+
+
+def is_palindrome_string(s):
+    s = s.lower()  # Convert to lowercase for case-insensitive comparison
+    s = s.replace(" ", "")  # Remove whitespace for comparison
+    return s == s[::-1]  # Compare with reversed string
+
+# Example usage:
+string = input("Enter a string: ")
+if is_palindrome_string(string):
+    print("The string is a palindrome.")
+else:
+    print("The string is not a palindrome.")
+
+
+
+
+
+
+
+def print_even_odd(numbers):
+    even_list = []
+    odd_list = []
+
+    for num in numbers:
+        if num % 2 == 0:
+            even_list.append(num)
+        else:
+            odd_list.append(num)
+
+    print("Even numbers:", even_list)
+    print("Odd numbers:", odd_list)
+
+# Example usage:
+input_str = input("Enter a list of numbers separated by spaces: ")
+numbers = list(map(int, input_str.split()))
+
+print_even_odd(numbers)
